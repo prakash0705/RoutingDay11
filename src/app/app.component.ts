@@ -17,7 +17,6 @@ export class AppComponent {
       'email':this.fb.control('',Validators.required),
       'dob':this.fb.control('',Validators.required),
       'country':this.fb.control('',Validators.required),
-      'gender':this.fb.control('',Validators.required),
       'favfood':this.fb.control('',Validators.required),
       'address':this.fb.array([
         this.fb.group({
