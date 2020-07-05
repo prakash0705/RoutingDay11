@@ -34,8 +34,8 @@
         <br/>
         <label for="country">Country</label>&nbsp;&nbsp;&nbsp;
         <select name="country" id="" formControlName="country">
-          <option value="IN">INDIA</option>&nbsp;
-          <option value="US">AMERICA</option>
+          <option value="INDIA">INDIA</option>&nbsp;
+          <option value="AMERICA">AMERICA</option>
         </select>
         <br/>
         
@@ -90,10 +90,10 @@
             <td>INDIA</td>
           </tr>
           <tr *ngFor="let user of userDetails">
-            <td>Prakash</td>
-            <td>prakashkumaran78@gmail.com</td>
-            <td>07/05/1998</td>
-            <td>INDIA</td>
+            <td>{{user.name}}</td>
+            <td>{{user.email}}</td>
+            <td>{{user.dob}}</td>
+            <td>{{user.country}}</td>
           </tr>
         </tbody>
       </table>

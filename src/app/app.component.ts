@@ -38,6 +38,7 @@ submitForm()
   {
     console.log(this.userForm.value);
     this.userDetails.push(this.userForm.value);
+    console.log(this.userDetails)
   }
 }
 
