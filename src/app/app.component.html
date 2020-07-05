@@ -15,17 +15,22 @@
     <h3 >Form Application</h3>
   </div>
   <div class="row">
-    <div class="col-lg-6">
+    <div class="col-lg-6" style="padding-left: 20px;">
       <form [formGroup]="userForm" (submit)="submitForm()">
+        <br/>
+        <h3>Enter your details</h3>
         <br/>
         <label for="username">Name</label>&nbsp;&nbsp;&nbsp;
         <input type="text" name="name" formControlName="name"/>
+        <span *ngIf="!userForm.get('name').valid && userForm.get('name').dirty">Name should in length between 5-20 chars</span>
         <br/>
         <label for="email">Email</label>&nbsp;&nbsp;&nbsp;&nbsp;
         <input type="email" name="email" formControlName="email"/>
+        <span *ngIf="!userForm.get('email').valid && userForm.get('email').dirty">Not a valid Email</span>
         <br/>
         <label for="dob">DOB</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         <input type="date" name="dob" formControlName="dob"/>
+        <span *ngIf="!userForm.get('dob').valid && userForm.get('dob').touched">Not a valid Date</span>
         <br/>
         <label for="country">Country</label>&nbsp;&nbsp;&nbsp;
         <select name="country" id="" formControlName="country">
@@ -37,7 +42,7 @@
         <br/> 
         <label for="favfood">Favourite Food</label>&nbsp;&nbsp;&nbsp;
         <input type="checkbox" name="favfood1" formControlName="favfood">Veg
-
+        <input type="checkbox" name="favfood1" formControlName="favfood">Non-Veg
         <br/>
         <h4>Address</h4>
           <div formArrayName="address" *ngFor="let address of userForm.get('address')['controls'];let i=index;">

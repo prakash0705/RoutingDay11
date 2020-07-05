@@ -14,8 +14,8 @@ export class AppComponent {
   {
     this.userForm=this.fb.group({
       'name':this.fb.control('',[Validators.required,Validators.minLength(5),Validators.maxLength(20)]),
-      'email':this.fb.control('',Validators.required),
-      'dob':this.fb.control('',Validators.required),
+      'email':this.fb.control('',[Validators.required,Validators.email]),
+      'dob':this.fb.control('',[Validators.required]),
       'country':this.fb.control('',Validators.required),
       'favfood':this.fb.control('',Validators.required),
       'address':this.fb.array([
