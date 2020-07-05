@@ -7,19 +7,107 @@
     integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Price Tag App</title>
+  <title>Music App</title>
 </head>
 
 <body>
   <div class="header">
-    <h3 >PRICE TAG SAMPLE TASK</h3>
+    <h3 >Form Application</h3>
   </div>
-  <div class = 'containsCards'>
-  <app-price-tag></app-price-tag>
+  <div class="row">
+    <div class="col-lg-6">
+      <form [formGroup]="userForm" (submit)="submitForm()">
+        <br/>
+        <label for="username">Name</label>&nbsp;&nbsp;&nbsp;
+        <input type="text" name="name" formControlName="name"/>
+        <br/>
+        <label for="email">Email</label>&nbsp;&nbsp;&nbsp;&nbsp;
+        <input type="email" name="email" formControlName="email"/>
+        <br/>
+        <label for="dob">DOB</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <input type="date" name="dob" formControlName="dob"/>
+        <br/>
+        <label for="country">Country</label>&nbsp;&nbsp;&nbsp;
+        <select name="country" id="" formControlName="country">
+          <option value="IN">INDIA</option>&nbsp;
+          <option value="US">AMERICA</option>
+        </select>
+        <br/>
+        <label for="gender">Gender</label>&nbsp;&nbsp;&nbsp;
+        <input type="radio" name="male" formControlName="gender" value="gender">Male
+        
+        <br/> 
+        <label for="favfood">Favourite Food</label>&nbsp;&nbsp;&nbsp;
+        <input type="checkbox" name="favfood1" formControlName="favfood">Veg
+
+        <br/>
+        <h4>Address</h4>
+          <div formArrayName="address" *ngFor="let address of userForm.get('address')['controls'];let i=index;">
+            <div [formGroupName]="i">
+              <label for="">Street</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              <input type="text" formControlName="street">
+              <br/>
+              <label for="">Door No</label>&nbsp;&nbsp;&nbsp;
+              <input type="text" formControlName="door">
+              <br/>
+              <label for="">Pincode</label>&nbsp;&nbsp;&nbsp;&nbsp;
+              <input type="number" formControlName="pin">
+              <br/>
+            </div>
+          </div>
+          <br/>
+          <div style="padding-left:60px;">
+        <input type="submit" value="Submit"/>
+      </div>
+        </form>
+    </div>
+  
+      
+    <div class="col-lg-6">
+      <table class="table table-stripped">
+        <thead>
+          <tr>
+          <th scope="col">Name</th>
+          <th scope="col">Email</th>
+          <th scope="col">DOB</th>
+          <th scope="col">Country</th>
+        </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Prakash</td>
+            <td>prakashkumaran78@gmail.com</td>
+            <td>07/05/1998</td>
+            <td>INDIA</td>
+          </tr>
+          <tr>
+            <td>Ram</td>
+            <td>ram1998@gmail.com</td>
+            <td>01/02/1999</td>
+            <td>INDIA</td>
+          </tr>
+          <tr *ngFor="let user of userDetails">
+            <th scope="row"></th>
+            <td>Prakash</td>
+            <td>prakashkumaran78@gmail.com</td>
+            <td>07/05/1998</td>
+            <td>INDIA</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
   </div>
+  
+  
+  
+  
+
+
+
+
+
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
-</body>
 
-</html>
