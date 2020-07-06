@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import {FormBuilder,Validators, EmailValidator} from "@angular/forms";
+import {ActivatedRoute} from "@angular/router"
 
 @Component({
   selector: 'app-root',
@@ -8,39 +9,12 @@ import {FormBuilder,Validators, EmailValidator} from "@angular/forms";
 })
 export class AppComponent {
   title = 'MyApp';
-  userForm;
-  userDetails=[];
-  constructor(private fb:FormBuilder)
+
+  constructor(private activateroute:ActivatedRoute)
   {
-    this.userForm=this.fb.group({
-      'name':this.fb.control('',[Validators.required,Validators.minLength(5),Validators.maxLength(20)]),
-      'email':this.fb.control('',[Validators.required,Validators.email]),
-      'dob':this.fb.control('',[Validators.required]),
-      'country':this.fb.control('',Validators.required),
-      'favfood':this.fb.control('',Validators.required),
-      'address':this.fb.array([
-        this.fb.group({
-        'street':this.fb.control(''),
-        'door':this.fb.control(''),
-        'pin':this.fb.control('')
-        }),
-        this.fb.group({
-          'street':this.fb.control(''),
-          'door':this.fb.control(''),
-          'pin':this.fb.control('')
-          })
-      ])
-    })
+      
   }
-submitForm()
-{
-  if(this.userForm.valid)
-  {
-    console.log(this.userForm.value);
-    this.userDetails.push(this.userForm.value);
-    console.log(this.userDetails)
-  }
-}
+
 
 
 

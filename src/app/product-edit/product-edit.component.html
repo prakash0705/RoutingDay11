@@ -1,0 +1,28 @@
+<div class="row">
+    <div class="col-lg-6" style="padding-left: 20px;">
+      <form [formGroup]="productForm" (submit)="submitForm()">
+        <br/>
+        <h3 style="color: blue; padding-left: 50px;">Enter stock details</h3>
+        <br/>
+        <label for="productname" style="padding-left: 31px;">Name</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <input type="text" name="name" formControlName="name"/>
+        <span *ngIf="!productForm.get('name').valid && productForm.get('name').dirty">Name should in length between 5-20 chars</span>
+        <br/><br/>
+        <label for="price" style="padding-left: 30px;">Price</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <input type="number" name="price" formControlName="price"/>
+        <span *ngIf="!productForm.get('price').valid && productForm.get('name').touched">Enter a valid price</span>
+        <br/><br/>
+        <label for="stock" style="padding-left: 30px;">Stock</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <input type="number" name="stock" formControlName="stock"/>
+        <span *ngIf="!productForm.get('stock').valid && productForm.get('stock').touched">Enter a valid stock number</span>
+        <br/>
+          <div style="padding-left:100px; padding-top: 30px;">
+        <input class="btn btn-primary" type="submit" value="Submit"/>
+      </div>
+        </form>
+        <br/>
+        <br/>
+        
+        
+    </div>
+</div>

@@ -1,0 +1,67 @@
+<div class="row">
+    <div class="col-lg-6" style="padding-left: 20px;">
+      <form [formGroup]="productForm" (submit)="submitForm()">
+        <br/>
+        <h3 style="color: blue; padding-left: 50px;">Enter stock details</h3>
+        <br/>
+        <label for="productname" style="padding-left: 31px;">Name</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <input type="text" name="name" formControlName="name"/>
+        <span *ngIf="!productForm.get('name').valid && productForm.get('name').dirty">Name should in length between 5-20 chars</span>
+        <br/><br/>
+        <label for="price" style="padding-left: 30px;">Price</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <input type="number" name="price" formControlName="price"/>
+        <span *ngIf="!productForm.get('price').valid && productForm.get('name').touched">Enter a valid price</span>
+        <br/><br/>
+        <label for="stock" style="padding-left: 30px;">Stock</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <input type="number" name="stock" formControlName="stock"/>
+        <span *ngIf="!productForm.get('stock').valid && productForm.get('stock').touched">Enter a valid stock number</span>
+        <br/>
+          <div style="padding-left:100px; padding-top: 30px;">
+        <input class="btn btn-primary" type="submit" value="Submit"/>
+      </div>
+        </form>
+        <br/>
+        <br/>
+        <div style="padding-left: 30px; color: blue;"><h5>Once click Submit the stock details data will be stored in local storage</h5></div>
+        
+    </div>
+  
+      
+    <div class="col-lg-6">
+        <br/>
+        <div style="text-align: center; color: blue;"><h4>Table data is retrieved from local storage</h4></div>
+        <br/>
+      <table class="table table-stripped">
+        <thead>
+          <tr>
+          <th scope="col">Name</th>
+          <th scope="col">Price</th>
+          <th scope="col">Stock</th>
+          <th scope="col"></th>
+        </tr>
+        </thead>
+        <tbody>
+          
+          <tr *ngFor= "let product of productArray">
+            <td>{{product.count.name}}</td>
+            <td>{{product.count.price}}</td>
+            <td>{{product.count.stock}}&nbsp;&nbsp;</td>    
+            <td><input type="submit" value="edit" class = "btn btn-primary" routerLink="edit" /></td>
+            
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+  
+  
+  
+  
+
+
+
+
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>

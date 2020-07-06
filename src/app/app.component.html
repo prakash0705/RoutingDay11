@@ -11,94 +11,11 @@
 </head>
 
 <body>
-  <div class="header">
-    <h3 >Form Application</h3>
-  </div>
-  <div class="row">
-    <div class="col-lg-6" style="padding-left: 20px;">
-      <form [formGroup]="userForm" (submit)="submitForm()">
-        <br/>
-        <h3>Enter your details and it will be appear in table</h3>
-        <br/>
-        <label for="username">Name</label>&nbsp;&nbsp;&nbsp;
-        <input type="text" name="name" formControlName="name"/>
-        <span *ngIf="!userForm.get('name').valid && userForm.get('name').dirty">Name should in length between 5-20 chars</span>
-        <br/>
-        <label for="email">Email</label>&nbsp;&nbsp;&nbsp;&nbsp;
-        <input type="email" name="email" formControlName="email"/>
-        <span *ngIf="!userForm.get('email').valid && userForm.get('email').dirty">Not a valid Email</span>
-        <br/>
-        <label for="dob">DOB</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <input type="date" name="dob" formControlName="dob"/>
-        <span *ngIf="!userForm.get('dob').valid && userForm.get('dob').touched">Not a valid Date</span>
-        <br/>
-        <label for="country">Country</label>&nbsp;&nbsp;&nbsp;
-        <select name="country" id="" formControlName="country">
-          <option value="INDIA">INDIA</option>&nbsp;
-          <option value="AMERICA">AMERICA</option>
-        </select>
-        <br/>
-        
-        <br/> 
-        <label for="favfood">Favourite Food</label>&nbsp;&nbsp;&nbsp;
-        <input type="checkbox" name="favfood1" formControlName="favfood">Veg
-        <input type="checkbox" name="favfood1" formControlName="favfood">Non-Veg
-        <br/>
-        <h4>Address</h4>
-          <div formArrayName="address" *ngFor="let address of userForm.get('address')['controls'];let i=index;">
-            <div [formGroupName]="i">
-              <label for="">Street</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-              <input type="text" formControlName="street">
-              <br/>
-              <label for="">Door No</label>&nbsp;&nbsp;&nbsp;
-              <input type="text" formControlName="door">
-              <br/>
-              <label for="">Pincode</label>&nbsp;&nbsp;&nbsp;&nbsp;
-              <input type="number" formControlName="pin">
-              <br/>
-            </div>
-          </div>
-          <br/>
-          <div style="padding-left:60px;">
-        <input type="submit" value="Submit"/>
-      </div>
-        </form>
-    </div>
-  
-      
-    <div class="col-lg-6">
-      <table class="table table-stripped">
-        <thead>
-          <tr>
-          <th scope="col">Name</th>
-          <th scope="col">Email</th>
-          <th scope="col">DOB</th>
-          <th scope="col">Country</th>
-        </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Prakash</td>
-            <td>prakashkumaran78@gmail.com</td>
-            <td>1998-05-12</td>
-            <td>INDIA</td>
-            <td></td>
-          </tr>
-          <tr *ngFor="let user of userDetails">
-            <td>{{user.name}}</td>
-            <td>{{user.email}}</td>
-            <td>{{user.dob}}</td>
-            <td>{{user.country}}</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
 
-  </div>
   
   
-  
-  
+  <app-nav-bar></app-nav-bar>
+  <router-outlet></router-outlet>
 
 
 
