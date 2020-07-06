@@ -24,7 +24,7 @@ productArray=[];
 
   ngOnInit(): void {
 
-    
+
   }
 
   submitForm()
@@ -37,9 +37,9 @@ productArray=[];
     this.productArray[this.count]=JSON.parse(this.productArray[this.count]);
     this.product=this.product+this.count;
     this.count++;
-    
+    this.product=this.product.substring(0,this.product.length-2);    
     console.log(this.productForm.value);
-    console.log(window.localStorage.getItem(this.product));
+    
     
   }
 
