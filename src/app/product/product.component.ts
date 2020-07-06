@@ -29,7 +29,9 @@ productArray=[];
 
   submitForm()
   {
-    this.product=this.product+this.count;
+    if(this.productForm.valid)
+    {
+      this.product=this.product+this.count;
     window.localStorage.setItem(this.product,JSON.stringify({
       count:this.productForm.value
     }))
@@ -39,6 +41,8 @@ productArray=[];
     this.count++;
     this.product=this.product.substring(0,this.product.length-2);    
     console.log(this.productForm.value);
+    }
+    
     
     
   }
