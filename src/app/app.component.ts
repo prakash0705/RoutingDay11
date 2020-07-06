@@ -8,11 +8,11 @@ import {ActivatedRoute} from "@angular/router"
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'MyApp';
+  title = 'Angular Routing';
 
   constructor(private activateroute:ActivatedRoute)
   {
-      
+
   }
 
 
